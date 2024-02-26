@@ -1,0 +1,11 @@
+@use "../../styles/variables" as var;
+
+.header {
+  padding-bottom: var.$space-m;
+
+  .mainTitle {
+    text-align: center;
+    font-size: var.$font-xl;
+    padding: 2rem;
+  }
+}

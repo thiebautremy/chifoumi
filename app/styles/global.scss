@@ -1,0 +1,26 @@
+@use "./variables" as var;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: var.$black;
+  background-color: var.$blue;
+}
+
+// ==== UI KIT ====
+.p-dialog-content {
+  padding: var.$space-m 0;
+  text-align: center;
+}
+
+.p-dialog-header {
+  text-align: center;
+  font-weight: 500;
+  border-bottom: 1px solid var.$black;
+
+  .p-dialog-title {
+    padding: var.$space-s 0;
+  }
+}

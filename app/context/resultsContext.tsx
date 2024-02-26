@@ -1,11 +1,17 @@
 "use client";
 import React, { createContext, useState } from "react";
 
+type TotalPointsType = {
+  userPoints: number;
+  computerPoints: number;
+};
 interface ResultsContextProps {
   userChoice: string;
-  setUserChoice: (value: string) => void;
+  setUserChoice: React.Dispatch<React.SetStateAction<string>>;
   computerChoice: string;
-  setComputerChoice: (value: string) => void;
+  setComputerChoice: React.Dispatch<React.SetStateAction<string>>;
+  totalPoints: TotalPointsType;
+  setTotalPoints: React.Dispatch<React.SetStateAction<TotalPointsType>>;
 }
 export const ResultsContext = createContext({} as ResultsContextProps);
 
@@ -15,6 +21,10 @@ interface Props {
 export const ResultsContextProvider: React.FC<Props> = ({ children }) => {
   const [userChoice, setUserChoice] = useState("");
   const [computerChoice, setComputerChoice] = useState("");
+  const [totalPoints, setTotalPoints] = useState({
+    userPoints: 0,
+    computerPoints: 0,
+  });
   return (
     <ResultsContext.Provider
       value={{
@@ -22,6 +32,8 @@ export const ResultsContextProvider: React.FC<Props> = ({ children }) => {
         setUserChoice,
         computerChoice,
         setComputerChoice,
+        totalPoints,
+        setTotalPoints,
       }}
     >
       {children}

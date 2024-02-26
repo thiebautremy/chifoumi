@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./reset.css";
-import "./global.css";
 import { ResultsContextProvider } from "./context/resultsContext";
+
+import "./styles/reset.scss";
+import "./styles/global.scss";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

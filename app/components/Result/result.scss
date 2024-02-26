@@ -1,0 +1,26 @@
+@use "../../styles/variables" as var;
+
+.result {
+  flex-grow: 1;
+  border-top: 1px solid var.$black;
+  border-right: 1px solid var.$black;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: var.$blue-light;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(var.$space-xl);
+  -webkit-backdrop-filter: blur(var.$space-xl);
+
+  .title {
+    text-align: center;
+    padding: var.$space-s 0;
+    font-size: var.$font-m;
+    border-bottom: 1px solid var.$black;
+  }
+
+  .points {
+    font-size: var.$font-l;
+    text-align: center;
+    margin-top: var.$space-l;
+  }
+}
