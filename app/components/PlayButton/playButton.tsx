@@ -13,8 +13,21 @@ const PlayButton = () => {
     computerChoice,
     setUserChoice,
     setTotalPoints,
-    setComputerChoice,
+    setDuelsHistoric,
   } = useContext(ResultsContext);
+
+  const addDuelsHitoric = (winner: string) => {
+    setDuelsHistoric((prec) => [
+      ...prec,
+      {
+        index: prec.length === 0 ? 0 : prec[prec.length - 1].index + 1,
+        you: userChoice,
+        computer: computerChoice,
+        winner,
+      },
+    ]);
+    setUserChoice("");
+  };
 
   const determineWinner = () => {
     const winningCombinations: { [key: string]: string[] } = {
@@ -23,10 +36,9 @@ const PlayButton = () => {
       scissors: ["paper"],
     };
 
-    setUserChoice("");
-
     if (userChoice === computerChoice) {
       setDialogData({ isVisible: true, text: "Tie" });
+      addDuelsHitoric("tie");
       return;
     }
 
@@ -39,6 +51,7 @@ const PlayButton = () => {
         ...prec,
         userPoints: prec.userPoints++,
       }));
+      addDuelsHitoric("you");
       return;
     }
 
@@ -50,6 +63,7 @@ const PlayButton = () => {
       ...prec,
       computerPoints: prec.computerPoints++,
     }));
+    addDuelsHitoric("computer");
   };
 
   return (

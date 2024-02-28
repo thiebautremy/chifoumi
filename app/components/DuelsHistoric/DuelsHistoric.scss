@@ -1,0 +1,23 @@
+@use "../../styles/variables" as var;
+
+.tie {
+  color: var.$orange;
+}
+
+.duel {
+  padding-top: var.$space-xs;
+  text-align: center;
+  font-size: var.$font-m;
+
+  .index {
+    margin-right: var.$space-m;
+  }
+
+  .isWinner {
+    color: var.$green;
+  }
+
+  svg {
+    display: inline-block;
+  }
+}

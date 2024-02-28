@@ -5,6 +5,13 @@ type TotalPointsType = {
   userPoints: number;
   computerPoints: number;
 };
+
+type DuelHistoricType = {
+  index: number;
+  you: string;
+  computer: string;
+  winner: string;
+};
 interface ResultsContextProps {
   userChoice: string;
   setUserChoice: React.Dispatch<React.SetStateAction<string>>;
@@ -12,6 +19,10 @@ interface ResultsContextProps {
   setComputerChoice: React.Dispatch<React.SetStateAction<string>>;
   totalPoints: TotalPointsType;
   setTotalPoints: React.Dispatch<React.SetStateAction<TotalPointsType>>;
+  duelsHistoric: DuelHistoricType[];
+  setDuelsHistoric: React.Dispatch<
+    React.SetStateAction<DuelHistoricType[] | []>
+  >;
 }
 export const ResultsContext = createContext({} as ResultsContextProps);
 
@@ -25,6 +36,7 @@ export const ResultsContextProvider: React.FC<Props> = ({ children }) => {
     userPoints: 0,
     computerPoints: 0,
   });
+  const [duelsHistoric, setDuelsHistoric] = useState<DuelHistoricType[]>([]);
   return (
     <ResultsContext.Provider
       value={{
@@ -34,6 +46,8 @@ export const ResultsContextProvider: React.FC<Props> = ({ children }) => {
         setComputerChoice,
         totalPoints,
         setTotalPoints,
+        duelsHistoric,
+        setDuelsHistoric,
       }}
     >
       {children}

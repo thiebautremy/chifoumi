@@ -1,19 +1,13 @@
 "use client";
 import React, { useContext } from "react";
 import ResultsContext from "@components/app/context/resultsContext";
-import { FaHandRock, FaHandPaper, FaHandScissors } from "react-icons/fa";
 import classNames from "classnames";
 import "./userChoices.scss";
+import { choices } from "@components/app/utils/data";
 
 const UserChoices = () => {
   const { setUserChoice, userChoice, setComputerChoice } =
     useContext(ResultsContext);
-
-  const choices = [
-    { id: 0, name: "Rock", logo: <FaHandRock /> },
-    { id: 1, name: "Paper", logo: <FaHandPaper /> },
-    { id: 2, name: "Scissors", logo: <FaHandScissors /> },
-  ];
 
   const handleOnClick = (name: string) => {
     setUserChoice(name);

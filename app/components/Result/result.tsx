@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import "./result.scss";
 import ResultsContext from "@components/app/context/resultsContext";
+import DuelsHistoric from "../DuelsHistoric/DuelsHistoric";
 
 const Result = () => {
   const {
@@ -10,7 +11,8 @@ const Result = () => {
 
   return (
     <section className="result">
-      <p className="title">Result</p>
+      <p className="title">Duels historic</p>
+      <DuelsHistoric />
       <p className="points">{`You ${userPoints} - ${computerPoints} Computer`}</p>
     </section>
   );
